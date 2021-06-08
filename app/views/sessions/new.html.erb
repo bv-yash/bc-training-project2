@@ -1,0 +1,23 @@
+<% flash.each do |type, msg| %>
+        <script>
+                alert("<%=msg%>");
+        </script>
+<% end %>
+
+<h1>Sign In</h1>
+<%= form_with url: '/login', method: :post do |form| %>
+
+        <div>
+                <%= form.email_field :email, placeholder: 'Enter your email' %>
+        </div>
+        <br><br>
+        
+        <div>
+                <%= form.password_field :password, placeholder: 'Enter your password' %>
+        </div>
+        <br><br>
+
+        <div>
+                <%= form.submit "Login"%>
+        </div>
+<% end %>
