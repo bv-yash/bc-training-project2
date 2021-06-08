@@ -1,0 +1,42 @@
+<%= form_with model: user do |form| %>
+        <div>
+                <%= form.text_field :name, placeholder: 'Input your Name' %>
+        </div>
+        <% user.errors.full_messages_for(:name).each do |message| %>
+                <div><%= message %></div>
+        <% end %>
+
+        <br><br>
+
+        <% unless edit %>
+                <div>
+                        <%= form.email_field :email, placeholder: 'Input your email' %>
+                </div>
+                <% user.errors.full_messages_for(:email).each do |message| %>
+                        <div><%= message %></div>
+                <% end %>
+        <br><br>
+        <% end %>
+
+        <div>
+                <%= form.password_field :password, placeholder: 'Create a password' %>
+        </div>
+        <% user.errors.full_messages_for(:password).each do |message| %>
+                <div><%= message %></div>
+        <% end %>
+
+        <br><br>
+
+        <div>
+                <%= form.password_field :password_confirmation, placeholder: 'Confirm password' %>
+        </div>
+        <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+                <div><%= message %></div>
+        <% end %>
+        
+        <br><br>
+
+        <div>
+                <%= form.submit %>
+        </div>
+<% end %>
