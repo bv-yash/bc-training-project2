@@ -1,47 +1,51 @@
 class ArticlesController < ApplicationController
-        def index
-                @articles = Article.all
-        end
-
+        before_action :require_login, only: [:edit, :update, :new, :create, :destory]
+        
         def show
+                @user = User.find(params[:user_id])
                 @article = Article.find(params[:id])
         end
 
         def new
-                @article = Article.new
+                @user = User.find(params[:user_id])
+                @article = @user.articles.build
         end
 
         def create
-                @article = Article.new(article_parms)
+                @user = User.find(params[:user_id])
+                @article = @user.articles.create(article_parms)
                 if @article.save
-                        redirect_to @article
+                        redirect_to user_article_path(@user, @article)
                 else
                         render 'new'
                 end
         end
 
         def edit
+                @user = User.find(params[:user_id])
                 @article = Article.find(params[:id])
         end
 
         def update
+                @user = User.find(params[:user_id])
                 @article = Article.find(params[:id])
                 if @article.update(article_parms)    
-                        redirect_to @article
+                        redirect_to user_article_path(@user, @article)
                 else
                         render :edit
                 end
         end
 
         def destroy
+                @user = User.find(params[:user_id])
                 @article = Article.find(params[:id])
                 @article.destroy
                 
-                redirect_to root_path
+                redirect_to user_path(@user)
         end
 
         private
         def article_parms
-                params.require(:article).permit(:title, :body, :status)
+                params.require(:article).permit(:title, :body, :status, :user_id)
         end
 end

@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'sessions/login'
-  get 'sessions/logout'
-        root "articles#index"
-
+        root "home#index"
+        
+        get "signup", to: "users#new"
         get "login", to: "sessions#new"
+        get "logout", to: "sessions#logout"
         post "login", to: "sessions#login"
 
-        resources :users
-        resources :articles do
-                resources :comments
+        resources :users do
+                resources :articles do
+                        resources :comments
+                end
         end
 end

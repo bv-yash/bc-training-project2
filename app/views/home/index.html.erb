@@ -1,0 +1,33 @@
+<% if logged_in? %>
+        <div>
+                <h1> Home </h1>
+                <p> <strong> Welcome </strong> <%= current_user.name %> </p>
+                <p> <a href = "<%= user_path(current_user) %>"> Your Article </a> </p>
+                <p> <a href = "logout"> Logout </a> </p>
+        </div>
+<% else %>
+        <h1>Welcome To Awesome Blog</h1>
+        <div> 
+                <strong> New user ! </strong> 
+                <a href = 'signup'> Sign up here</a> 
+        </div>
+        <div> 
+                <strong> Already have an account. </strong>
+                <a href = 'login'> Log in here </a> 
+        </div>
+        <br><br>
+<% end %>
+
+
+Our site has <%= Article.public_count %> articles and counting!
+<ul>
+        <% @users.each do |user| %>
+                <% user.articles.each do |article| %>
+                        <% unless article.private? %>
+                                <li>
+                                <%= link_to article.title, [ user, article ] %>
+                                </li>
+                        <% end %>
+                <% end %>                
+        <% end %>
+</ul>

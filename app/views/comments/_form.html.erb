@@ -1,9 +1,4 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-        <p>
-                <%= form.label :commenter %><br>
-                <%= form.text_field :commenter %>
-        </p>
-
+<%= form_with model: Comment.new, url: "/users/#{@user.id}/articles/#{@article.id}/comments" do |form| %>
         <p>
                 <%= form.label :body %><br>
                 <%= form.text_area :body %>
@@ -11,7 +6,7 @@
         
         <div>
                 <%= form.label :status %><br>
-                <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+                <%= form.select :status, ['public', 'private'], selected: 'public' %>
         </div>
 
         <p>

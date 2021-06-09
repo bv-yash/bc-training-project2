@@ -10,14 +10,19 @@
         <div>
                 <%= form.email_field :email, placeholder: 'Enter your email' %>
         </div>
-        <br><br>
+        <br>
         
         <div>
                 <%= form.password_field :password, placeholder: 'Enter your password' %>
         </div>
-        <br><br>
+        <br>
 
         <div>
-                <%= form.submit "Login"%>
+                <%= form.submit "Login"%> | <button><%= link_to "Home", root_path %></button>
         </div>
 <% end %>
+<br>
+<div> 
+        <strong> New user ! </strong> 
+        <a href = 'signup'> Sign up here</a> 
+</div>
