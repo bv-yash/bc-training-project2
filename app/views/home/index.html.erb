@@ -2,7 +2,7 @@
         <div>
                 <h1> Home </h1>
                 <p> <strong> Welcome </strong> <%= current_user.name %> </p>
-                <p> <a href = "<%= user_path(current_user) %>"> Your Article </a> </p>
+                <p> <a href = "<%= user_path(current_user) %>"> My Account </a> </p>
                 <p> <a href = "logout"> Logout </a> </p>
         </div>
 <% else %>
@@ -17,7 +17,6 @@
         </div>
         <br><br>
 <% end %>
-
 
 Our site has <%= Article.public_count %> articles and counting!
 <ul>

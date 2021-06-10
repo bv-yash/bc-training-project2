@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
         before_action :require_login, only: [:edit, :update, :destory]
+        before_action :correct_user, only: [:edit, :update, :destory]
 
         def index
-                @users = User.all
+                redirect_to root_path
         end
 
         def show

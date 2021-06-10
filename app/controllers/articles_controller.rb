@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
         before_action :require_login, only: [:edit, :update, :new, :create, :destory]
+        before_action :correct_user, only: [:edit, :update, :new, :create, :destory]
         
         def show
                 @user = User.find(params[:user_id])
@@ -47,5 +48,5 @@ class ArticlesController < ApplicationController
         private
         def article_parms
                 params.require(:article).permit(:title, :body, :status, :user_id)
-        end
+        end 
 end
