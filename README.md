@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h1> Routes </h1>
 
-Things you may want to cover:
+<strong>home         => </strong> http://127.0.0.1:3000/
 
-* Ruby version
+<strong>signup       => </strong> http://127.0.0.1:3000/signup
 
-* System dependencies
+<strong>login        => </strong> http://127.0.0.1:3000/login
 
-* Configuration
+<strong>user         => </strong> http://127.0.0.1:3000/user/:id
 
-* Database creation
+<strong>new user     => </strong> http://127.0.0.1:3000/user/new
 
-* Database initialization
+<strong>edit user    => </strong> http://127.0.0.1:3000/user/:id/edit
 
-* How to run the test suite
+<strong>article      => </strong> http://127.0.0.1:3000/user/:user_id/articles/:id
 
-* Services (job queues, cache servers, search engines, etc.)
+<strong>new article  => </strong> http://127.0.0.1:3000/user/:user_id/articles/new
 
-* Deployment instructions
+<strong>edit article => </strong> http://127.0.0.1:3000/user/:user_id/articles/:id/edit
 
-* ...
+<strong>new comments => </strong> http://127.0.0.1:3000/user/:user_id/articles/:article_id/comments/new
+
+<strong>edit comments=> </strong> http://127.0.0.1:3000/user/:user_id/articles/:article_id/comments/:id/edit
+
+
+
+
+
+<h1>Attached Screen shots</h1>
+
+Home Page 
+![](images/home_page.png) 
+
+Login Page 
+![](images/login.png) 
+
+Sign Up Page 
+![](images/sign_up.png) 
+
+Home User Page 
+![](images/home_user.png) 
+
+My Account Page 
+![](images/my_account.png) 
+
+Article Page 
+![](images/article_show.png) 
+
+New Article Page 
+![](images/new_article.png) 
+
+Comments Page 
+![](images/comments.png) 
