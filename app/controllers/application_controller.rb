@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
         end
 
         def correct_user
-                @user = params[:controller] == 'users' ? User.find(params[:id]) : User.find(params[:user_id]) 
+                @user = params[:controller] == 'users' ? User.find_by(id: params[:id]) : User.find_by(id: params[:user_id]) 
                 if  !current_user.nil? &&  @user.id != current_user.id
                         render :file => "#{Rails.root}/public/422.html",  layout: false, status: 422
                 end
