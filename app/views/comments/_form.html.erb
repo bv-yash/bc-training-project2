@@ -1,0 +1,15 @@
+<%= form_with model: Comment.new, url: "/users/#{@user.id}/articles/#{@article.id}/comments" do |form| %>
+        <p>
+                <%= form.label :body %><br>
+                <%= form.text_area :body %>
+        </p>
+        
+        <div>
+                <%= form.label :status %><br>
+                <%= form.select :status, ['public', 'private'], selected: 'public' %>
+        </div>
+
+        <p>
+                <%= form.submit %>
+        </p>
+<% end %>

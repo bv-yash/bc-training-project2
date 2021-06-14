@@ -1,0 +1,5 @@
+<% if !article.private? || (current_user && @user.id == current_user.id) %>
+        <li>
+                <%= link_to article.title, user_article_path(@user, article) %>
+        </li>
+<% end %>

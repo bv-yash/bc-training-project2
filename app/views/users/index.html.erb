@@ -1,0 +1,11 @@
+<h1>User Index</h1>
+
+Our site has <%= User.count %> users and counting!
+
+<ul>
+        <% @users.each do |user| %>
+                <li>
+                <%= link_to user.name, user %>
+                </li>
+        <% end %>
+</ul>
